@@ -8,31 +8,34 @@ namespace CourseApp.Module2
     {
         public static void BubbleSortMethod()
         {
-            int n = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
             string s = Console.ReadLine();
             string[] sValues = s.Split(' ');
-            int[] arr = new int[n];
-            for (int i = 0; i < n; i++)
+            int[] arr = new int[b];
+            for (int k = 0; k < b; k++)
             {
-                arr[i] = int.Parse(sValues[i]);
+                arr[k] = int.Parse(sValues[k]);
             }
 
-            for (int i = 0; i < arr.Length - 1; i++)
+            bool swap = false;
+            for (int k = 0; k < arr.Length - 1; k++)
             {
-                for (int j = 0; j < arr.Length - i - 1; j++)
+                for (int n = 0; n < arr.Length - k - 1; n++)
                 {
-                    if (arr[j] > arr[j + 1])
+                    if (arr[n] > arr[n + 1])
                     {
-                        // int temp = arr[j];
-                        // arr[j] = arr[j + 1];
-                        // arr[j+1] = temp;
-                        (arr[j], arr[j + 1]) = (arr[j + 1], arr[j]);
+                        swap = true;
+                        (arr[n], arr[n + 1]) = (arr[n + 1], arr[n]);
+                        string result = string.Join(" ", arr);
+                        Console.WriteLine(result);
                     }
                 }
             }
 
-            string result = string.Join(" ", arr);
-            Console.WriteLine(result);
+            if (swap == false)
+            {
+                Console.WriteLine(0);
+            }
         }
     }
 }
